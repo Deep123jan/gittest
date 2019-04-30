@@ -1,3 +1,4 @@
+#This program is for split the single file into the multiple files
 with open("input.fasta")as file1:
     cntr = 1
     output = open(str(cntr)+'out.txt','w')
