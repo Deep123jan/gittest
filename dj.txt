@@ -1,0 +1,12 @@
+with open("input.fasta")as file1:
+    cntr = 1
+    output = open(str(cntr)+'out.txt','w')
+    for a in file1.read():
+        if a[0]=='>':
+            output.close()
+            output = open(str(cntr)+'out.fasta','w')
+            output.write(a)
+            cntr+=1
+        else:
+            output.write(a)
+    output.close()
