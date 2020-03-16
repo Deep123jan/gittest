@@ -1,0 +1,61 @@
+def mergesort(array):
+    if len(array) <= 1:
+        return array
+    result = []
+    midpoint = int(len(array)/2)
+    left,right = mergesort(array[:midpoint]), mergesort(array[midpoint:])
+    leftside = rightside= 0
+    while leftside < len(left) and rightside < len(right):
+        if left[leftside] < right[rightside]:
+            result.append(left[leftside])
+            leftside += 1
+        else:
+            result.append(right[rightside])
+            rightside += 1
+    result.extend(left[leftside:])
+    result.extend(right[rightside:])
+    return result
+
+def quick_sort(sequence):
+    if len(sequence) < 1:
+        return sequence
+    else:
+        pivot = sequence.pop()
+        
+    shortlist1 = []
+    longlist2 = []
+    for num in sequence:
+        if num < pivot:
+            shortlist1.append(num)
+        else:
+            longlist2.append(num)
+    return quick_sort(shortlist1)+[pivot]+quick_sort(longlist2)
+
+def selection_sort(array):
+    for i in range(0,len(array)-1):
+        minvalue = i
+        for j in range(i+1, len(array)):
+            if array[j] < array[minvalue]:
+                minvalue = j
+                
+        if minvalue != i:
+            array[minvalue],array[i]=array[i],array[minvalue]
+            
+    return array
+
+def bubble_sort(array):
+    for i in range(0,len(array)-1):
+        for j in range(0, len(array)-1):
+            if array[j+1] < array[j]:
+                array[j+1], array[j] = array[j], array[j+1]
+#                 print(array)
+    return array
+
+def selection_sort2(array):
+    for i in range(0,len(array)-1):
+        for j in range(i+1, len(array)):
+            if array[j] < array[i]:
+                array[i],array[j] = array[j],array[i]
+#                 print(array)
+        
+    return array
