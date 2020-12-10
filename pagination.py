@@ -1,30 +1,3 @@
-def abbreviated_pages(n, page):
-
-    # Build set of pages to display
-    if n <= 5:
-        pages = range(1, n + 1)
-
-    elif(page==n):
-        pages = range(max(1, page - 4),min(page+1, n+1))
-    elif(page==n-1):
-        pages = range(max(1, page - 3), min(page + 2, n+ 1))
-    elif(page==1):
-        pages = range(max(1, page), min(page + 5, n + 1))
-    elif(page==2):
-        pages = range(max(1, page - 1), min(page + 4, n + 1))
-    else:
-        pages = range(max(1, page - 2), min(page + 3, n + 1))
-    # Display pages in order with ellipses
-    def display():
-        last_page = 0
-        for p in sorted(pages):
-            if p != last_page + 1: yield ''
-            yield ('[{0}]' if p == page else '{0}').format(p)
-            last_page = p
-
-    return(' '.join(display()))
-
-
 def get_pages(current, total, n = 5):
     assert(0 < current <= total)
     pages = []      
